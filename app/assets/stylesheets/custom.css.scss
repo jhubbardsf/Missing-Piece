@@ -34,6 +34,45 @@ textarea {
   }
 }
 
+/* game board */
+#game-board {
+  border: 1px black solid;
+  width: 400px;
+  height: 400px;
+  margin: 35px auto 0 auto;
+
+  .row {
+    border-bottom: 1px black solid;
+    height: 99px;
+    width: 400px;
+    margin-left: 0px;
+
+    &:last-of-type {
+      border: none;
+    }
+
+    .col {
+      border-right: 1px black solid;
+      height: 100px;
+      width: 96px;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+
+      &:last-of-type {
+        border: none;
+      }
+
+      .text-holder {
+        width: 50;
+        height: 50;
+        margin: 25px auto 0 auto;
+        display: inline-block;
+      }
+    }
+  }
+}
+
 /* miscellaneous */
 
 .debug_dump {
