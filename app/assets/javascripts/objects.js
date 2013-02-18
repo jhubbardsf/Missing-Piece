@@ -4,7 +4,7 @@ function checkForWin() {
         return e.currentRow == e.originalRow && e.currentCol == e.originalCol;
     });
     if (correctBoxes.length == boxes.length) {
-        alert("YOU WON");
+        $('.alert').slideDown();
     }
 }
 

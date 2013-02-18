@@ -23,6 +23,11 @@ $(function () {
 
     });
 
+    // Close winning alert
+    $(document).on('click', '.close-alert', function(e) {
+        e.preventDefault();
+        $(this).parent('.alert').slideUp();
+    });
 
     // Mess the boxes up
     $(document).on('click', '#randomize', function (e) {

@@ -18,6 +18,10 @@ body {
   padding-top: 30px;
 }
 
+#main {
+  padding-top: 30px;
+}
+
 .center {
   text-align: center;
 
@@ -53,7 +57,7 @@ body {
   border: 1px black solid;
   width: 400px;
   height: 400px;
-  margin: 35px auto 20px auto;
+  margin: 0px auto 20px auto;
   position: relative;
 
   .box {
