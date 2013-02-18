@@ -17,10 +17,7 @@ $(function () {
     // Toggle number overlay
     $(document).on('click', '#numbers-toggle', function(e) {
         e.preventDefault();
-       $('.text-holder').toggle();
-       $('#numbers-toggle > .text1').toggle();
-       $('#numbers-toggle > .text2').toggle();
-
+        toggleNumbers();
     });
 
     // Close winning alert
@@ -34,6 +31,8 @@ $(function () {
         e.preventDefault();
         var possibleBoxes = [],
             boxToMove = {};
+
+        if ($('.alert').is(':visible')) $('.alert').slideUp();
 
         for (var i = 0; i < 40; i++) {
             possibleBoxes = findBoxesWithMoves();

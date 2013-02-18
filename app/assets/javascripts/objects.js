@@ -3,9 +3,14 @@ function checkForWin() {
     correctBoxes = $.grep(boxes, function (e) {
         return e.currentRow == e.originalRow && e.currentCol == e.originalCol;
     });
-    if (correctBoxes.length == boxes.length) {
-        $('.alert').slideDown();
-    }
+
+    if (correctBoxes.length == boxes.length) $('.alert').slideDown();
+}
+
+function toggleNumbers() {
+    $('.text-holder').toggle();
+    $('#numbers-toggle > .text1').toggle();
+    $('#numbers-toggle > .text2').toggle();
 }
 
 function findBoxesWithMoves() {
@@ -15,9 +20,7 @@ function findBoxesWithMoves() {
 }
 
 function findBox(boxArray, row, col) {
-    if (row < 0 || row > 3 || col < 0 || col > 3) {
-        return "NA";
-    }
+    if (row < 0 || row > 3 || col < 0 || col > 3) return "OUT OF RANGE";
 
     return $.grep(boxes, function (e) {
         return e.currentRow == row && e.currentCol == col;
@@ -70,7 +73,7 @@ function box($this) {
 
     that.findMove = function findMove(move) {
         var nextMove = false;
-        move = typeof move !== "undefined" ? move : true
+        move = typeof move !== "undefined" ? move : true;
         while (true) {
             if (typeof that.above() === "undefined") {
                 move ? that.moveUp() : (nextMove = true);
