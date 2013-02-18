@@ -1,11 +1,14 @@
-#game-board
-  - (0..3).each do |row|
-    - (0..3).each do |col|
-      - unless (row == 3 && col == 3)
-        %div{ class: "box row-#{row} col-#{col}", "data-row" => row, "data-col" => col, "data-correct" => (row*4) + col }
-          .text-holder
-            = (((row) * 4) + (col + 1)) if ((((row) * 4) + col) != 16)
+#game-container
+  #game-board
+    - (0..3).each do |row|
+      - (0..3).each do |col|
+        - unless (row == 3 && col == 3)
+          %div{ class: "box row-#{row} col-#{col}", "data-row" => row, "data-col" => col, "data-correct" => (row*4) + col }
+            .text-holder
+              = (((row) * 4) + (col + 1)) if ((((row) * 4) + col) != 16)
 
 .center
   = link_to "Randomize Me", '#', id: "randomize", class: "btn"
-  = link_to "Hide Numbers", '#', id: "numbers-toggle", class: "btn"
+  = link_to '#', id: "numbers-toggle", class: "btn" do
+    .text1 Hide Numbers
+    .text2 Show Numbers

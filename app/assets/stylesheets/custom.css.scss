@@ -98,6 +98,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: $grayLight;
+
   a {
     color: $gray;
 
@@ -122,6 +123,13 @@ footer {
 }
 
 /* miscellaneous */
+
+#numbers-toggle {
+  width: 115px;
+  .text2 {
+    display: none;
+  }
+}
 
 .debug_dump {
   clear: both;

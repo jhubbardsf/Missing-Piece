@@ -18,6 +18,9 @@ $(function () {
     $(document).on('click', '#numbers-toggle', function(e) {
         e.preventDefault();
        $('.text-holder').toggle();
+       $('#numbers-toggle > .text1').toggle();
+       $('#numbers-toggle > .text2').toggle();
+
     });
 
 
