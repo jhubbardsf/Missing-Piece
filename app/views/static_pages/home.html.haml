@@ -1,8 +1,12 @@
 %h1 15 Piece Puzzle Game
 
 #game-board
-  - (1..4).each do |row|
-    %div{ class: "row row-#{row}", "data-row" => row }
-      - (1..4).each do |col|
-        %div{ class: "col row-#{row} col-#{col}", "data-row" => row, "data-col" => col }
+  - (0..3).each do |row|
+    - (0..3).each do |col|
+      - unless (row == 3 && col == 3)
+        %div{ class: "box row-#{row} col-#{col}", "data-row" => row, "data-col" => col, "data-correct" => (row*4) + col }
           .text-holder
+            = (((row) * 4) + (col + 1)) if ((((row) * 4) + col) != 16)
+
+.center
+  = link_to "Randomize Me", '#', id: "randomize"
