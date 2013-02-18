@@ -42,75 +42,12 @@ textarea {
   margin: 35px auto 20px auto;
   position: relative;
 
-  .box.row-0.col-0 {
-    background:url('puppies.png') 0px 0px;
-  }
-
-  .box.row-0.col-1 {
-    background:url('puppies.png') -100px 0;
-  }
-
-  .box.row-0.col-2 {
-    background:url('puppies.png') -200px 0;
-  }
-
-  .box.row-0.col-3 {
-    background:url('puppies.png') -300px 0;
-  }
-
-  .box.row-1.col-0 {
-    background:url('puppies.png') 0px -100px;
-  }
-
-  .box.row-1.col-1 {
-    background:url('puppies.png') -100px -100px;
-  }
-
-  .box.row-1.col-2 {
-    background:url('puppies.png') -200px -100px;
-  }
-
-  .box.row-1.col-3 {
-    background:url('puppies.png') -300px -100px;
-  }
-
-  .box.row-2.col-0 {
-    background:url('puppies.png') 0 -200px;
-  }
-
-  .box.row-2.col-1 {
-    background:url('puppies.png') -100px -200px;
-  }
-
-  .box.row-2.col-2 {
-    background:url('puppies.png') -200px -200px;
-  }
-
-  .box.row-2.col-3 {
-    background:url('puppies.png') -300px -200px;
-  }
-
-  .box.row-3.col-0 {
-    background:url('puppies.png') 0 -300px;
-  }
-
-  .box.row-3.col-1 {
-    background:url('puppies.png') -100px -300px;
-  }
-
-  .box.row-3.col-2 {
-    background:url('puppies.png') -200px -300px;
-  }
-
-  .box.row-3.col-3 {
-    background:url('puppies.png') -300px -300px;
-  }
-
   .box {
     outline: 1px black solid;
     width: 100px;
     height: 100px;
     position: absolute;
+    background-image: url('puppies.png');
 
     .text-holder {
       text-align: center;
@@ -120,36 +57,22 @@ textarea {
       font-weight: bolder;
     }
 
-    &.row-0 {
-      top: 0;
+    @for $x from 0 through 3 {
+      &.row-#{$x} {
+        top: (100px * $x);
+
+        @for $i from 0 through 3 {
+          &.col-#{$i} {
+            background-position: (-100px * $i) (-100px * $x);
+          }
+        }
+      }
     }
 
-    &.row-1 {
-      top: 100px;
-    }
-
-    &.row-2 {
-      top: 200px;
-    }
-
-    &.row-3 {
-      top: 300px;
-    }
-
-    &.col-0 {
-      left: 0;
-    }
-
-    &.col-1 {
-      left: 100px;
-    }
-
-    &.col-2 {
-      left: 200px;
-    }
-
-    &.col-3 {
-      left: 300px;
+    @for $i from 0 through 3 {
+      &.col-#{$i} {
+        left: $i * 100px;
+      }
     }
   }
 }
