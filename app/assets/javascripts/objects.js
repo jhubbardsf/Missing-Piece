@@ -19,7 +19,7 @@ function findBoxesWithMoves() {
     });
 }
 
-function findBox(boxArray, row, col) {
+function findBox(row, col) {
     if (row < 0 || row > 3 || col < 0 || col > 3) return "OUT OF RANGE";
 
     return $.grep(boxes, function (e) {
@@ -36,19 +36,19 @@ function box($this) {
     };
 
     that.above = function above() {
-        return findBox(boxes, that.currentRow - 1, that.currentCol);
+        return findBox(that.currentRow - 1, that.currentCol);
     };
 
     that.below = function below() {
-        return findBox(boxes, that.currentRow + 1, that.currentCol);
+        return findBox(that.currentRow + 1, that.currentCol);
     };
 
     that.left = function left() {
-        return findBox(boxes, that.currentRow, that.currentCol - 1);
+        return findBox(that.currentRow, that.currentCol - 1);
     }
 
     that.right = function right() {
-        return findBox(boxes, that.currentRow, that.currentCol + 1);
+        return findBox(that.currentRow, that.currentCol + 1);
     }
 
     that.moveUp = function moveUp() {
