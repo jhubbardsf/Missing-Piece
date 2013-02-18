@@ -1,5 +1,3 @@
-%h1 15 Piece Puzzle Game
-
 #game-board
   - (0..3).each do |row|
     - (0..3).each do |col|
@@ -9,4 +7,5 @@
             = (((row) * 4) + (col + 1)) if ((((row) * 4) + col) != 16)
 
 .center
-  = link_to "Randomize Me", '#', id: "randomize"
+  = link_to "Randomize Me", '#', id: "randomize", class: "btn"
+  = link_to "Hide Numbers", '#', id: "numbers-toggle", class: "btn"
